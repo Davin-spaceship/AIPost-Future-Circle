@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── 基礎設定（深色主題）─── */
+body {
+  background-color: #111319;
+  color: #F7F7F3;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* 全頁共用網格：由上往下漸層淡出 */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 255, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 255, 0, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 15%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 15%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── 隱藏橫向滾動條 ─── */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── 折疊面板動畫 ─── */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+.accordion-content.is-open {
+  max-height: 1200px;
+  opacity: 1;
+}
+
+/* ─── 圖示旋轉過渡 ─── */
+.chevron {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.is-open-btn .chevron {
+  transform: rotate(180deg);
+}
+
+/* ─── FAQ 按鈕樣式（深色主題）─── */
+.faq-btn {
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(200, 255, 0, 0.1);
+}
+.faq-item:last-child .faq-btn,
+.faq-item:last-child .accordion-inner {
+  border-bottom: none;
+}
+.faq-btn:hover {
+  background-color: rgba(200, 255, 0, 0.05);
+}
+.is-open-btn {
+  background-color: rgba(200, 255, 0, 0.08);
+}
+
+/* ─── 玻璃卡片效果 ─── */
+.glass-card {
+  background: rgba(26, 28, 37, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 255, 0, 0.12);
+}
+
+/* ─── Hero 光暈 ─── */
+.hero-glow {
+  background: radial-gradient(ellipse 600px 300px at 50% 40%, rgba(200, 255, 0, 0.12) 0%, transparent 70%);
+}
+
+/* ─── 減少動態偏好 ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow,
+  .animate-slide-up {
+    animation: none !important;
+  }
+}
