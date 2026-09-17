@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI郵報 100K OPEN LAB：2026 年 11–12 月，台北場、香港場，每場 300 人起規劃。企業贊助、產品體驗、分享與競賽合作邀請。">
+  <title>AI郵報 100K OPEN LAB — Sponsorship &amp; Partnership Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#cover">AIPOST <span>100K OPEN LAB</span></a>
+    <div class="topbar__right"><span id="counter">01 / 12</span><button id="overviewBtn" type="button" aria-haspopup="dialog">頁面總覽</button></div>
+  </header>
+
+  <main id="deck"></main>
+  <noscript>請開啟 JavaScript 以閱讀合作簡報。合作洽詢：davin@aiposthub.com</noscript>
+
+  <nav class="deck-nav" aria-label="簡報導覽">
+    <button id="prevBtn" type="button" aria-label="上一頁">←</button>
+    <span id="pageTitle" class="nav-title"></span>
+    <div id="dots" class="deck-nav__dots"></div>
+    <button id="nextBtn" type="button" aria-label="下一頁">→</button>
+  </nav>
+
+  <dialog id="overview" class="overview" aria-labelledby="overviewTitle">
+    <div class="overview__head"><strong id="overviewTitle">頁面總覽</strong><button id="closeOverview" type="button">關閉 ×</button></div>
+    <div id="overviewGrid" class="overview__grid"></div>
+  </dialog>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
